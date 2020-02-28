@@ -7,8 +7,13 @@ const mapping = {
   'text/plain': './uploads/txt/'
 }
 
+//Max file Size
+const options = {
+  maxFileSize: 21474836480
+}
+
 module.exports = function upload(req, res) {
-  var form = new IncomingForm()
+  var form = new IncomingForm(options)
 
   form.on('file', (field, file) => {
 
