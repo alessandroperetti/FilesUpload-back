@@ -1,6 +1,7 @@
-const express = require('express')
-const upload = require('./upload')
-const cors = require('cors')
+const express = require('express');
+const upload = require('./upload');
+const list = require('./list');
+const cors = require('cors');
 
 const server = express()
 
@@ -11,7 +12,8 @@ var corsOptions = {
 
 server.use(cors(corsOptions))
 
-server.post('/upload', upload)
+server.post('/upload', upload);
+server.get('/list', list);
 
 server.listen(8888, () => {
   console.log('Server started!')
